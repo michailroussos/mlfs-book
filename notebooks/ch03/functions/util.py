@@ -284,6 +284,7 @@ def purge_project(proj):
 def secrets_api(proj):
     host = "c.app.hopsworks.ai"
     api_key = os.environ.get('HOPSWORKS_API_KEY')
+    print(f"api_key {api_key}")
     conn = hopsworks.connection(host=host, project=proj, api_key_value=api_key)
     return conn.get_secrets_api()
 
