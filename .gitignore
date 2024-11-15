@@ -163,3 +163,4 @@ cython_debug/
 snurran.sh
 .DS_Store
 data/hopsworks-api-key.txt
+mlfs-book/data/hopsworks-api-key.txt
