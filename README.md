@@ -1,6 +1,9 @@
 # ID2223 - LAB 1
 Athanasia Farmaki, farmaki@kth.se
+
 Michail Roussos, michailr@kth.se
+
+
 This repository contains the code for the first Lab assignment. 
 We have implemented tasks 1-6.
 The files we changed were in file notebooks/ch03.
