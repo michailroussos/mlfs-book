@@ -307,3 +307,17 @@ def backfill_predictions_for_monitoring(weather_fg, air_quality_df, monitor_fg, 
     df = df.drop('pm25', axis=1)
     monitor_fg.insert(df, write_options={"wait_for_job": True})
     return hindcast_df
+
+def create_lagged_pm25(df):
+    df.set_index('date', inplace=True)
+
+    # Calculate the 3-day rolling average
+    df.sort_values(by='date', inplace=True)
+    temp = df['pm25'].rolling(window=3, min_periods=1).mean()
+    df['lagged_pm25'] = temp.shift(1)
+    df['lagged_pm25'] = df['lagged_pm25'].astype(float)
+
+    df.dropna(inplace=True)
+    # Reset the index if needed
+    df.reset_index(inplace=True)
+    return df
